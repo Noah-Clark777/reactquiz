@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 function Timer({ dispatch, secondsRemaining }) {
-  const minutes = Math.floor(secondsRemaining / 60);
+  const mins = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
 
   useEffect(
@@ -9,14 +9,17 @@ function Timer({ dispatch, secondsRemaining }) {
       const id = setInterval(function () {
         dispatch({ type: "tick" });
       }, 1000);
+
       return () => clearInterval(id);
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
     <div className="timer">
-      {minutes < 10 && "0"} {minutes}:{seconds} {seconds < 10 && "0"}
+      {mins < 10 && "0"}
+      {mins}:{seconds < 10 && "0"}
+      {seconds}
     </div>
   );
 }

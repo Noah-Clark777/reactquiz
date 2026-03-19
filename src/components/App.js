@@ -63,7 +63,7 @@ function reducer(state, action) {
     case "tick":
       return {
         ...state,
-        secondsRemaining: state.secondsRemeining - 1,
+        secondsRemaining: state.secondsRemaining - 1,
         status: state.secondsRemaining === 0 ? "finished" : state.status,
       };
     default:
